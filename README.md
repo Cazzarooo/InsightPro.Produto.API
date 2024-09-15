@@ -111,6 +111,10 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 - `PUT /api/avaliacoes/{id}`: Atualiza uma avaliação existente.
 - `DELETE /api/avaliacoes/{id}`: Remove uma avaliação.
 
+# Modelagem do Projeto
+
+![Modelagem Challenge3 drawio](https://github.com/user-attachments/assets/e754ba3a-3c76-4f6b-83f7-df8509a7bfd8)
+
 ## Estrutura do Projeto
 ```bash
 InsightPro.API/
