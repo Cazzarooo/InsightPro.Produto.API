@@ -9,19 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.50" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\InsightPro.Produto.Application\InsightPro.Produto.Application.csproj" />
-    <ProjectReference Include="..\InsightPro.Produto.Data\InsightPro.Produto.Data.csproj" />
     <ProjectReference Include="..\InsightPro.Produto.Domain\InsightPro.Produto.Domain.csproj" />
+    <ProjectReference Include="..\InsightPro.Produto.IoC\InsightPro.Produto.IoC.csproj" />
   </ItemGroup>
 
 </Project>

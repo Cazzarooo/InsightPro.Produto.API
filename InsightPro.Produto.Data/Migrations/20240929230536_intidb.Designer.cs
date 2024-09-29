@@ -11,8 +11,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace InsightPro.Produto.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240915175313_initdb")]
-    partial class initdb
+    [Migration("20240929230536_intidb")]
+    partial class intidb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

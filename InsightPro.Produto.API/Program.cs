@@ -1,18 +1,8 @@
-using InsightPro.Produto.Application.Services;
-using InsightPro.Produto.Data.AppData;
-using InsightPro.Produto.Data.Repositories;
-using InsightPro.Produto.Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using InsightPro.Produto.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<ApplicationContext>(options => {
-    options.UseOracle(builder.Configuration["ConnectionStrings:Oracle"]);
-});
-
-
-builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
-builder.Services.AddTransient<IProdutoApplicationService, ProdutoApplicationService>();
+Bootstrap.Start(builder.Services, builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

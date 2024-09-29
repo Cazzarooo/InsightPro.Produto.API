@@ -5,7 +5,7 @@
 namespace InsightPro.Produto.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class initdb : Migration
+    public partial class intidb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
