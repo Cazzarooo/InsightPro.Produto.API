@@ -10,6 +10,7 @@
     <ProjectReference Include="..\InsightPro.Produto.Application\InsightPro.Produto.Application.csproj" />
     <ProjectReference Include="..\InsightPro.Produto.Data\InsightPro.Produto.Data.csproj" />
     <ProjectReference Include="..\InsightPro.Produto.Domain\InsightPro.Produto.Domain.csproj" />
+    <ProjectReference Include="..\InsightPro.Produto.Service\InsightPro.Produto.Service.csproj" />
   </ItemGroup>
 
 </Project>

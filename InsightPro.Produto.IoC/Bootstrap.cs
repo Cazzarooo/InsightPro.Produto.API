@@ -2,6 +2,7 @@
 using InsightPro.Produto.Data.AppData;
 using InsightPro.Produto.Data.Repositories;
 using InsightPro.Produto.Domain.Interfaces;
+using InsightPro.Produto.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,10 @@ namespace InsightPro.Produto.IoC
             });
 
 
+            services.AddTransient<IEnderecoService, EnderecoService>();
+
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
+
             services.AddTransient<IProdutoApplicationService, ProdutoApplicationService>();
 
         }

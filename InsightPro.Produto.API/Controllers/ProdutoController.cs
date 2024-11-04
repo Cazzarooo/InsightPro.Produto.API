@@ -1,8 +1,10 @@
-﻿using InsightPro.Produto.Application.Services;
+﻿using InsightPro.Produto.Application.Dtos;
+using InsightPro.Produto.Application.Services;
 using InsightPro.Produto.Domain.Entities;
 using InsightPro.Produto.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace InsightPro.Produto.API.Controllers
 {
@@ -59,31 +61,55 @@ namespace InsightPro.Produto.API.Controllers
         /// <returns></returns>
         [HttpPost]
         [Produces<ProdutoEntity>]
-        public IActionResult Post(ProdutoEntity entity)
+        public IActionResult Post(ProdutoDto entity)
         {
-            var produtos = _produtoApplicationService.SalvarDadosProduto(entity);
+            try
+            {
+                var produtos = _produtoApplicationService.SalvarDadosProduto(entity);
 
-            if (produtos is not null)
-                return Ok(produtos);
+                if (produtos is not null)
+                    return Ok(produtos);
 
-            return BadRequest("Não foi possível salvar os dados");
+                return BadRequest("Não foi possível salvar os dados");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new {
+                    Error = ex.Message,
+                    Status = HttpStatusCode.BadRequest,
+
+                });
+            }
         }
 
         /// <summary>
         /// Método para editar o produto
         /// </summary>
+        /// <param name="id">Identificador do Produto</param>
         /// <param name="entity">Modelo de dados do Produto</param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPut("{id}")]
         [Produces<ProdutoEntity>]
-        public IActionResult Put(ProdutoEntity entity)
+        public IActionResult Put(int id, ProdutoDto entity)
         {
-            var produtos = _produtoApplicationService.EditarDadosProduto(entity);
+            try
+            {
+                var produtos = _produtoApplicationService.EditarDadosProduto(id, entity);
 
-            if (produtos is not null)
-                return Ok(produtos);
+                if (produtos is not null)
+                    return Ok(produtos);
 
-            return BadRequest("Não foi possível editar os dados");
+                return BadRequest("Não foi possível editar os dados");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    Error = ex.Message,
+                    Status = HttpStatusCode.BadRequest,
+
+                });
+            }
         }
 
         /// <summary>
@@ -102,6 +128,18 @@ namespace InsightPro.Produto.API.Controllers
                 return Ok(produtos);
 
             return BadRequest("Não foi possível deletar os dados");
+        }
+
+        [HttpGet("busca/endereco/{cep}")]
+        [Produces<Endereco>]
+        public async Task<IActionResult> GetDataService(string cep)
+        {
+            var endereco = await _produtoApplicationService.ObterEnderecoPorCepAsync(cep);
+
+            if (endereco is not null)
+                return Ok(endereco);
+
+            return BadRequest("Não foi possivel obter os dados do endereço");
         }
     }
 }

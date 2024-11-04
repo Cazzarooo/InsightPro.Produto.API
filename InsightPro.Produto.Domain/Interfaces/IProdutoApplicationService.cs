@@ -1,4 +1,5 @@
 ﻿using InsightPro.Produto.Domain.Entities;
+using InsightPro.Produto.Domain.Interfaces.Dtos;
 
 namespace InsightPro.Produto.Domain.Interfaces
 {
@@ -6,9 +7,10 @@ namespace InsightPro.Produto.Domain.Interfaces
     {
         IEnumerable<ProdutoEntity> ObterTodosProdutos();
         ProdutoEntity? ObterProdutoPorId(int id);
-        ProdutoEntity? SalvarDadosProduto(ProdutoEntity entity);
-        ProdutoEntity? EditarDadosProduto(ProdutoEntity entity);
+        ProdutoEntity? SalvarDadosProduto(IProdutoDto entity);
+        ProdutoEntity? EditarDadosProduto(int id, IProdutoDto entity);
         ProdutoEntity? DeletarDadosProduto(int id);
+        Task<Endereco?> ObterEnderecoPorCepAsync(string cep);
 
     }
 }
