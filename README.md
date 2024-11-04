@@ -83,7 +83,7 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/Cazzarooo/InsightPro.Produto.API.git
     ```
 
 2. Acesse o diretório da API:
@@ -126,16 +126,6 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 - `POST /api/produtos`: Cria um novo produto.
 - `PUT /api/produtos/{id}`: Atualiza um produto existente.
 - `DELETE /api/produtos/{id}`: Remove um produto.
-
-### Avaliações
-
-- `GET /api/avaliacoes`: Retorna todas as avaliações.
-- `GET /api/avaliacoes/{id}`: Retorna uma avaliação específica pelo ID.
-- `POST /api/avaliacoes`: Cria uma nova avaliação.
-- `PUT /api/avaliacoes/{id}`: Atualiza uma avaliação existente.
-- `DELETE /api/avaliacoes/{id}`: Remove uma avaliação.
-
----
 
 ## Estrutura do Projeto
 
