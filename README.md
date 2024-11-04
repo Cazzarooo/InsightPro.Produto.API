@@ -1,37 +1,37 @@
-# Projeto InsightPro
-
-## Integrantes do Grupo
-- Leonardo Valentim de Souza - RM 98660
-- João Victor Leite Firmino - RM 97714
-- Gustavo dos Santos Correa - RM 99618
-- Lucas Cazzaro - RM 551201
-- Ronaldo Riyudi Noda - RM 99219
+# InsightPro
 
 ## Descrição Geral do Projeto
+
 O projeto **InsightPro** foi desenvolvido como uma aplicação para o gerenciamento de produtos e avaliações, fornecendo uma API robusta para operações CRUD (Create, Read, Update e Delete) e consultas sobre produtos e suas respectivas avaliações. A aplicação é implementada com uma arquitetura limpa e baseada em camadas, promovendo separação de responsabilidades, reutilização de código, facilidade de manutenção e escalabilidade.
 
-Esta API é parte de um sistema mais amplo que inclui módulos para diferentes domínios do projeto, sendo dois principais:
+Além das funcionalidades de gerenciamento de produtos e avaliações, o projeto também inclui a implementação de testes automatizados utilizando **xUnit**, uma framework poderosa e flexível para criar testes unitários e de integração no ecossistema .NET. A camada de testes foi desenhada para assegurar a confiabilidade da aplicação e permitir a verificação contínua das operações de CRUD, validações de dados, e consistência das regras de negócio. Todos os testes estão centralizados na classe `ProdutoApplicationServiceTests`.
+
+Outro destaque do InsightPro é a incorporação de **ML.NET**, que traz funcionalidades de aprendizado de máquina (Machine Learning) para o sistema, possibilitando a análise avançada de dados e a criação de previsões. Com essa integração, a aplicação pode oferecer insights adicionais sobre padrões e tendências das avaliações, fornecendo uma visão mais estratégica para a tomada de decisões.
+
+### Módulos Principais
 
 - **Produto**: Gerenciamento completo do ciclo de vida dos produtos.
 - **Avaliação**: Gerenciamento das avaliações relacionadas aos produtos, incluindo suas notas e comentários.
 
+---
+
 ## Arquitetura do Sistema
-O sistema foi projetado utilizando a arquitetura de camadas. Cada camada tem uma função bem definida, proporcionando maior clareza e flexibilidade no desenvolvimento e manutenção do código.
+
+O sistema foi projetado utilizando a arquitetura de camadas, onde cada camada tem uma função bem definida, proporcionando maior clareza e flexibilidade no desenvolvimento e manutenção do código.
 
 ### Estrutura de Camadas
 
-- **Presentation Layer (Camada de Apresentação)**: Essa camada lida com a comunicação entre o cliente e a aplicação. Utilizamos o framework ASP.NET Core para gerenciar os endpoints da API.
-
+- **Presentation Layer (Camada de Apresentação)**: Lida com a comunicação entre o cliente e a aplicação, utilizando o framework ASP.NET Core para gerenciar os endpoints da API.
 - **Application Layer (Camada de Aplicação)**: Contém a lógica de negócios de alto nível, coordenando operações entre a camada de domínio e a camada de apresentação.
-
 - **Domain Layer (Camada de Domínio)**: Define as entidades de domínio e as regras de negócios centrais.
-
 - **Infrastructure Layer (Camada de Infraestrutura)**: Lida com tecnologias externas como acesso ao banco de dados.
+- **Test Layer (Camada de Testes)**: Inclui testes unitários e de integração utilizando **xUnit** para garantir o comportamento correto da aplicação.
 
-- **Test Layer (Camada de Testes)**: Inclui testes unitários e de integração.
+---
 
 ## Motivos para Escolher Microsserviços em vez de Arquitetura Monolítica
-Embora o projeto InsightPro seja modularizado em camadas, futuros desenvolvimentos podem adotar a arquitetura de microsserviços por várias razões, como:
+
+Embora o projeto InsightPro seja modularizado em camadas, futuros desenvolvimentos podem adotar a arquitetura de microsserviços por várias razões:
 
 - **Escalabilidade**
 - **Flexibilidade Tecnológica**
@@ -39,22 +39,31 @@ Embora o projeto InsightPro seja modularizado em camadas, futuros desenvolviment
 - **Tolerância a Falhas**
 - **Facilidade de Manutenção e Atualização**
 - **Deploy Contínuo**
-- **Reuso de Código**
+
+---
 
 ## Tecnologias Utilizadas
+
 - **ASP.NET Core**
 - **Entity Framework Core**
 - **Oracle**
 - **Dependency Injection**
+- **xUnit** para testes automatizados
+- **ML.NET** para análise de dados e previsões
 
-## Design Patterns Utilizados
+### Design Patterns Utilizados
+
 - **Repository Pattern**
 - **Dependency Injection**
+
+---
 
 ## Instalação e Execução da API
 
 ### Pré-requisitos
+
 Certifique-se de ter as seguintes ferramentas instaladas:
+
 - .NET 6 SDK
 - Visual Studio 2022 ou VS Code
 - Oracle
@@ -95,27 +104,30 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 
 7. Teste a API localmente em `http://localhost:5000`.
 
+---
+
 ## Endpoints Disponíveis
 
-### Produtos:
+### Produtos
+
 - `GET /api/produtos`: Retorna todos os produtos cadastrados.
 - `GET /api/produtos/{id}`: Retorna um produto específico pelo ID.
 - `POST /api/produtos`: Cria um novo produto.
 - `PUT /api/produtos/{id}`: Atualiza um produto existente.
 - `DELETE /api/produtos/{id}`: Remove um produto.
 
-### Avaliações:
+### Avaliações
+
 - `GET /api/avaliacoes`: Retorna todas as avaliações.
 - `GET /api/avaliacoes/{id}`: Retorna uma avaliação específica pelo ID.
 - `POST /api/avaliacoes`: Cria uma nova avaliação.
 - `PUT /api/avaliacoes/{id}`: Atualiza uma avaliação existente.
 - `DELETE /api/avaliacoes/{id}`: Remove uma avaliação.
 
-# Modelagem do Projeto
-
-![Modelagem Challenge3 drawio](https://github.com/user-attachments/assets/e754ba3a-3c76-4f6b-83f7-df8509a7bfd8)
+---
 
 ## Estrutura do Projeto
+
 ```bash
 InsightPro.API/
 │
@@ -133,4 +145,9 @@ InsightPro.API/
 ├── 3 - Infrastructure/
 │   ├── Data/           # Repositórios e contexto do banco de dados
 │
-└── tests/              # Testes unitários e de integração
+└── tests/              # Testes unitários e de integração com xUnit
+```
+
+![Modelagem do Projeto](https://github.com/user-attachments/assets/e754ba3a-3c76-4f6b-83f7-df8509a7bfd8)
+
+---
