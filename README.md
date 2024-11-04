@@ -40,6 +40,33 @@ O sistema foi projetado utilizando a arquitetura de camadas, onde cada camada te
 
 ---
 
+### Clean Code
+Clean Code refere-se a práticas que tornam o código mais legível, organizado e compreensível, facilitando a manutenção e evolução do sistema. Alguns dos princípios básicos incluem:
+- **Nomes significativos**: Usar nomes que indiquem claramente o propósito de variáveis, métodos e classes.
+- **Funções pequenas e de única responsabilidade**: Manter funções curtas e focadas em uma única tarefa, facilitando a leitura e o reuso.
+- **Eliminação de duplicação de código**: Evitar duplicação melhora a clareza e facilita correções, já que uma mudança é necessária apenas em um local.
+- **Tratamento de erros claro**: Exceções e validações ajudam a evitar comportamentos inesperados e facilitam a identificação de problemas.
+- **Comentários explicativos somente quando necessário**: Priorizar um código autoexplicativo e usar comentários apenas para contexto adicional.
+
+No InsightPro, essas práticas ajudam a garantir que o código esteja claro e que qualquer membro da equipe possa entender e modificar o projeto rapidamente.
+
+---
+
+### Princípios SOLID
+Os princípios SOLID são um conjunto de boas práticas que promovem a criação de sistemas mais robustos e flexíveis:
+
+1. **S - Single Responsibility Principle (Princípio da Responsabilidade Única)**: Cada classe deve ter apenas uma razão para mudar, ou seja, uma única responsabilidade. No InsightPro, por exemplo, cada camada (Apresentação, Aplicação, Domínio e Infraestrutura) possui uma responsabilidade específica, facilitando modificações sem afetar o restante do sistema.
+
+2. **O - Open/Closed Principle (Princípio Aberto/Fechado)**: O código deve ser aberto para extensão, mas fechado para modificação. Isso é especialmente útil em sistemas de previsão como o InsightPro, onde podemos adicionar novas funcionalidades de Machine Learning sem modificar as já existentes.
+
+3. **L - Liskov Substitution Principle (Princípio da Substituição de Liskov)**: Objetos de uma classe derivada devem poder substituir objetos da classe base sem alterar a funcionalidade do sistema. Este princípio é importante para garantir que as abstrações usadas nos repositórios e serviços da aplicação sejam cumpridas corretamente.
+
+4. **I - Interface Segregation Principle (Princípio da Segregação de Interfaces)**: Interfaces específicas são melhores que uma única interface geral. No projeto InsightPro, o uso de interfaces para repositórios específicos permite maior flexibilidade e independência entre as camadas de aplicação e de domínio.
+
+5. **D - Dependency Inversion Principle (Princípio da Inversão de Dependência)**: Módulos de alto nível não devem depender de módulos de baixo nível, mas ambos devem depender de abstrações. O projeto aplica injeção de dependência para desacoplar a lógica de negócios da camada de infraestrutura.
+
+Esses princípios tornam o InsightPro mais fácil de entender, manter e expandir, especialmente se houver uma mudança futura para uma arquitetura de microsserviços. A modularização em camadas e o uso de Design Patterns como Repository e Dependency Injection complementam o SOLID, ajudando a manter o código limpo e organizado.
+
 ## Motivos para Escolher Microsserviços em vez de Arquitetura Monolítica
 
 Embora o projeto InsightPro seja modularizado em camadas, futuros desenvolvimentos podem adotar a arquitetura de microsserviços por várias razões:
